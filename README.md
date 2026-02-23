@@ -58,7 +58,7 @@ Pushed & PR created
 Merged into dev
 
 📚 USE CASE IMPLEMENTATION
-🟢 UC1 — Feet Equality
+## 🟢 UC1 — Feet Equality
 🎯 Goal
 
 Compare two Feet measurements for equality.
@@ -91,7 +91,7 @@ Understanding equality contract
 
 First step of TDD
 
-🟢 UC2 — Inches Equality
+## 🟢 UC2 — Inches Equality
 🎯 Goal
 
 Support Inches unit in addition to Feet.
@@ -116,7 +116,7 @@ Feet and Inches had identical logic.
 
 Recognized need for refactoring (DRY violation).
 
-🔵 UC3 — Refactor to Generic Length Class
+## 🔵 UC3 — Refactor to Generic Length Class
 🎯 Goal
 
 Remove duplication by introducing a generic measurement model.
@@ -174,7 +174,7 @@ Domain modeling
 
 DRY principle
 
-🟣 UC4 — Add New Units (Extensibility Proof)
+## 🟣 UC4 — Add New Units (Extensibility Proof)
 🎯 Goal
 
 Prove that the design is scalable by adding new units without modifying core logic.
@@ -303,3 +303,63 @@ Length l2 = new Length(12, Length.LengthUnit.INCHES);
 Length result = l1.add(l2);
 System.out.println(result); // 2.00 FEET
 
+## UC7 – Addition with Target Unit Specification
+Overview
+
+UC7 extends the length addition feature by allowing the caller to explicitly choose the unit of the result.
+Instead of always returning the result in the unit of the first operand (UC6), the result can now be returned in any supported length unit.
+
+What was implemented
+
+Added overloaded add method to support target unit:
+
+add(Length length1, Length length2, LengthUnit targetUnit)
+
+Both lengths are:
+
+Converted to base unit (inches)
+
+Added together
+
+Converted to the specified target unit
+
+Returned as a new immutable Length object
+
+Supported Units
+
+FEET
+
+INCHES
+
+YARDS
+
+CENTIMETERS
+
+Key Features
+
+Explicit control over result unit
+
+Maintains immutability of objects
+
+Reuses conversion logic from UC5
+
+Maintains backward compatibility with UC6
+
+Validates null units and invalid inputs
+
+Example
+Input	Target Unit	Result
+1 ft + 12 in	FEET	2 ft
+1 ft + 12 in	INCHES	24 in
+1 ft + 12 in	YARDS	0.667 yd
+Concepts Covered
+
+Method Overloading
+
+DRY Principle (shared conversion logic)
+
+Explicit parameter design
+
+Floating-point precision handling
+
+Robust validation & exception handling
