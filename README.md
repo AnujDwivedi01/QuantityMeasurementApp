@@ -364,7 +364,7 @@ Floating-point precision handling
 
 Robust validation & exception handling
 
-## 📘 UC8 – Refactoring Unit Enum to Standalone Class
+##  📘 UC8 – Refactoring Unit Enum to Standalone Class
 🔹 Overview
 
 UC8 refactors the architecture by extracting LengthUnit enum from the Length class into a standalone top-level enum.
@@ -407,3 +407,79 @@ No breaking changes.
 All previous tests pass.
 
 Archite
+
+## UC9- Addition of Weight Measurement
+📌 Feature Added
+
+UC9 extends the Quantity Measurement App by introducing a new measurement category: Weight.
+
+The system now supports multiple independent measurement categories:
+
+Length (existing UC1–UC8)
+
+Weight (new in UC9)
+
+⚖️ Supported Weight Units
+Unit	Base Conversion
+Kilogram (kg)	Base unit
+Gram (g)	1 kg = 1000 g
+Pound (lb)	1 lb = 0.453592 kg
+🚀 Capabilities Implemented
+1️⃣ Equality Comparison
+
+Weight objects can be compared across units.
+Example:
+
+1 kg == 1000 g
+
+2.20462 lb == 1 kg
+
+2️⃣ Unit Conversion
+
+Weights can be converted between all units.
+Examples:
+
+kg → g
+
+g → lb
+
+lb → kg
+
+3️⃣ Addition Operations
+
+Two weights can be added:
+
+Result in first operand unit
+
+Result in explicit target unit
+
+Examples:
+
+1 kg + 1000 g = 2 kg
+
+1 kg + 1000 g (GRAM) = 2000 g
+
+4️⃣ Category Type Safety
+
+Weight and Length cannot be compared.
+Example:
+
+1 kg != 1 foot
+
+5️⃣ Immutability & Precision
+
+All operations return new objects
+
+Round-trip conversions maintain accuracy
+
+Works with zero, negative & large values
+
+🧠 Key Learning
+
+Multiple measurement categories design
+
+Reusable enum-based conversion architecture
+
+Type safety across domains
+
+Arithmetic on Value Objects
