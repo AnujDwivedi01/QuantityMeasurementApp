@@ -483,3 +483,81 @@ Reusable enum-based conversion architecture
 Type safety across domains
 
 Arithmetic on Value Objects
+
+
+## 🔹 UC10 — Generic Quantity Measurement using Interface & Generics
+
+In this UC, the application was refactored to a generic architecture to support multiple measurement types using a common design.
+
+🎯 What was implemented
+1️⃣ Introduced a common interface
+
+Created IMeasurable interface to standardize unit behavior:
+
+Conversion to base unit
+
+Conversion from base unit
+
+Unit name access
+
+This allows any future unit type (Temperature, Volume, etc.) to plug into the system easily.
+
+2️⃣ Refactored Unit Enums
+
+Both enums now implement IMeasurable:
+
+LengthUnit
+
+WeightUnit
+
+Each unit now defines:
+
+Conversion factor to base unit
+
+Conversion logic
+
+3️⃣ Created Generic Quantity Class
+
+Introduced reusable generic class:
+
+Quantity<U extends IMeasurable>
+
+Capabilities:
+
+Compare quantities across units
+
+Convert between units
+
+Add quantities
+
+Add quantities with target unit
+
+Validation & immutability
+
+This removed duplication and made the design scalable and extensible.
+
+4️⃣ Multi-Domain Support
+
+Application now supports:
+
+Length conversions & arithmetic
+
+Weight conversions & arithmetic
+
+5️⃣ Extensive Test Coverage
+
+Added 30+ unit tests covering:
+
+Enum conversion logic
+
+Equality checks
+
+Conversions
+
+Addition
+
+Null & invalid inputs
+
+HashCode & immutability
+
+Backward compatibility
