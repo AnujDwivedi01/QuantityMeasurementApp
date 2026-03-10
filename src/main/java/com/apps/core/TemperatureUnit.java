@@ -1,5 +1,5 @@
 
-package com.apps;
+package com.apps.core;
 
 import java.util.function.Function;
 
