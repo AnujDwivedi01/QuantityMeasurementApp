@@ -19,6 +19,8 @@ public interface IQuantityMeasurementService {
     QuantityMeasurementDTO subtract(QuantityInputDTO input);
 
     QuantityMeasurementDTO divide(QuantityInputDTO input);
+    
+    QuantityMeasurementDTO multiply(QuantityInputDTO quantityInputDTO);
 
     // ===== History & Reporting =====
 

@@ -1,3 +1,4 @@
+
 package com.app.exception;
 
 import jakarta.servlet.http.HttpServletRequest;

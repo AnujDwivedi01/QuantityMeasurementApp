@@ -1,4 +1,3 @@
-
 package com.app.security;
 
 import com.app.model.User;
