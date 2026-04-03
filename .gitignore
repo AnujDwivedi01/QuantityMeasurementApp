@@ -22,6 +22,8 @@ logs/
 # Compiled Java Files
 # ===============================
 *.class
+bin/   
+
 
 # ===============================
 # Package Files
@@ -47,7 +49,6 @@ logs/
 .springBeans
 .sts4-cache
 .apt_generated
-bin/
 
 # ===============================
 # IDE - VS Code
@@ -90,3 +91,4 @@ coverage/
 .factorypath
 .gitattributes
 HELP.md
+.metadata/
